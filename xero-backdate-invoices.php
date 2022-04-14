@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Xero Backdate Invoices
+Plugin Name: Xero: Backdate Invoices
 Description: Add script and cron to generate Xero invoice for all orders that do not have one
 Version: 0.1
 Author: The team at PIE
