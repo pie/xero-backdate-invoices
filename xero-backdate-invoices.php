@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate_xero_update' );
-register_deactivation_hook( __FILE__, __NAMESPACE__ . '\\deactivate_xero_update' );
+register_activation_hook( __FILE__, __NAMESPACE__ . '\activate_xero_update' );
+register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivate_xero_update' );
 
 /**
 * Load in JS for admin screen
@@ -37,16 +37,16 @@ function enqueue_admin_scripts() {
 		) );
 	}
 }
-add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_admin_scripts' );
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\enqueue_admin_scripts' );
 
 /**
 * Hook in AJAX requests
 */
 function hook_up_ajax() {
-	add_action( 'wp_ajax_xero_backdate_invoices_get_orders', __NAMESPACE__ . '\\get_orders' );
-	add_action( 'wp_ajax_xero_backdate_invoices_send_invoices', __NAMESPACE__ . '\\update_orders' );
+	add_action( 'wp_ajax_xero_backdate_invoices_get_orders', __NAMESPACE__ . '\get_orders' );
+	add_action( 'wp_ajax_xero_backdate_invoices_send_invoices', __NAMESPACE__ . '\update_orders' );
 }
-add_action( 'init', __NAMESPACE__ . '\\hook_up_ajax' ) );
+add_action( 'init', __NAMESPACE__ . '\hook_up_ajax' ) );
 
 /**
 * Add scheduled event on plugin activation
@@ -101,7 +101,7 @@ function get_orders() {
 	update_option( 'xero_backdate_invoices_page', $page );
 	wp_send_json_success( $query->posts );
 }
-add_action( 'xero_backdate_invoices', __NAMESPACE__ . '\\get_orders' );
+add_action( 'xero_backdate_invoices', __NAMESPACE__ . '\get_orders' );
 
 /**
 * Send invoices for the given order IDs
