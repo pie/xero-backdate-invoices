@@ -46,7 +46,7 @@ function hook_up_ajax() {
 	add_action( 'wp_ajax_xero_backdate_invoices_get_orders', __NAMESPACE__ . '\get_orders' );
 	add_action( 'wp_ajax_xero_backdate_invoices_send_invoices', __NAMESPACE__ . '\update_orders' );
 }
-add_action( 'init', __NAMESPACE__ . '\hook_up_ajax' ) );
+add_action( 'init', __NAMESPACE__ . '\hook_up_ajax' );
 
 /**
 * Add scheduled event on plugin activation
