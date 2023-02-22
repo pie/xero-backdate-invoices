@@ -30,7 +30,7 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivate_xero_update' 
 function enqueue_admin_scripts() {
 	global $current_screen;
 	if ( 'woocommerce_page_woocommerce_xero' === $current_screen->id ) {
-		wp_enqueue_script( 'xero-backdate-invoices', plugins_url( '/js/xero-backdate-invoices.js', __FILE__ ), array( 'jquery' ), '0.1', true );
+		wp_enqueue_script( 'xero-backdate-invoices', get_stylesheet_directory_uri() . '/plugins/xero-backdate-invoices/js/xero-backdate-invoices.js', array( 'jquery' ), '0.1', true );
 		wp_localize_script( 'xero-backdate-invoices', 'xero_backdate_invoices', array(
 			'import_button_text' => __( 'Update Xero Invoices', 'xero-backdate-invoices' ),
 			'importing_text'     => __( 'Updating...', 'xero-backdate-invoices' ),
